@@ -12,17 +12,13 @@ public class MainManager : MonoBehaviour
 
     public Text ScoreText;
     public GameObject GameOverText;
-    public Text HiScoreText;
     
     private bool m_Started = false;
     private int m_Points;
     
     private bool m_GameOver = false;
 
-    private void Awake()
-    {
-
-    }
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -40,7 +36,6 @@ public class MainManager : MonoBehaviour
                 brick.onDestroyed.AddListener(AddPoint);
             }
         }
-        HiScoreText.text = $"Best Score: {StartMenuUI.hiScoreName} {StartMenuUI.hiScoreValue}";
     }
 
     private void Update()
@@ -77,16 +72,5 @@ public class MainManager : MonoBehaviour
     {
         m_GameOver = true;
         GameOverText.SetActive(true);
-    }
-
-    private void SaveHiScore()
-    {
-        
-    }
-
-    private class SaveData
-    {
-        string playerName;
-        int newHiScore;
     }
 }
