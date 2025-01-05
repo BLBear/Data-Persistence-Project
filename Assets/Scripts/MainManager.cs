@@ -59,6 +59,12 @@ public class MainManager : MonoBehaviour
             {
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
             }
+            if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter))
+            {
+                SceneManager.LoadScene(0);
+            }
+            DataManager.Instance.currentScore = m_Points;
+            Debug.Log("Main: " + DataManager.Instance.currentScore);
         }
     }
 
