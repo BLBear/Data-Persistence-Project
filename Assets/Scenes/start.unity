@@ -176,7 +176,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: AAA
+  m_text: NAME
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -732,6 +732,8 @@ MonoBehaviour:
   currentScore: 0
   hiScore: 0
   playerName: 
+  hiScoreName: 
+  hiScoreValue: 
 --- !u!4 &794986108
 Transform:
   m_ObjectHideFlags: 0
@@ -804,7 +806,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 0
+  m_text: VALUE
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1281,13 +1283,13 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 1289248716}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 794986107}
-        m_TargetAssemblyTypeName: DataManager, Assembly-CSharp
+      - m_Target: {fileID: 1922408499}
+        m_TargetAssemblyTypeName: StartMenuUI, Assembly-CSharp
         m_MethodName: StartButtonClick
         m_Mode: 1
         m_Arguments:
@@ -1505,7 +1507,7 @@ GameObject:
   - component: {fileID: 1402264570}
   - component: {fileID: 1402264569}
   m_Layer: 5
-  m_Name: InputField (TMP)
+  m_Name: Name Input Field
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1891,6 +1893,7 @@ GameObject:
   - component: {fileID: 1922408498}
   - component: {fileID: 1922408497}
   - component: {fileID: 1922408496}
+  - component: {fileID: 1922408499}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1983,6 +1986,22 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &1922408499
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1922408494}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff1286dd9d704314fbea2d772b75c0ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hiScoreNameText: {fileID: 89423842}
+  hiScoreValueText: {fileID: 877385207}
+  nameInputText: {fileID: 1307261420}
+  startButton: {fileID: 1289248715}
 --- !u!1 &2138866520
 GameObject:
   m_ObjectHideFlags: 0

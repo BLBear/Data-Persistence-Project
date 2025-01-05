@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,10 +12,13 @@ public class MainManager : MonoBehaviour
     public Rigidbody Ball;
 
     public Text ScoreText;
+    public Text HiScoreText;
     public GameObject GameOverText;
     
     private bool m_Started = false;
     private int m_Points;
+    private string hiScoreName;
+    private int hiScoreValue;
     
     private bool m_GameOver = false;
 
@@ -36,6 +40,9 @@ public class MainManager : MonoBehaviour
                 brick.onDestroyed.AddListener(AddPoint);
             }
         }
+        hiScoreName = DataManager.Instance.hiScoreName;
+        hiScoreValue = Convert.ToInt32(DataManager.Instance.hiScoreValue);
+        HiScoreText.text = $"Best score: {hiScoreName} {hiScoreValue}";
     }
 
     private void Update()
@@ -45,7 +52,7 @@ public class MainManager : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 m_Started = true;
-                float randomDirection = Random.Range(-1.0f, 1.0f);
+                float randomDirection = UnityEngine.Random.Range(-1.0f, 1.0f);
                 Vector3 forceDir = new Vector3(randomDirection, 1, 0);
                 forceDir.Normalize();
 
@@ -64,7 +71,6 @@ public class MainManager : MonoBehaviour
                 SceneManager.LoadScene(0);
             }
             DataManager.Instance.currentScore = m_Points;
-            Debug.Log("Main: " + DataManager.Instance.currentScore);
         }
     }
 
@@ -72,6 +78,15 @@ public class MainManager : MonoBehaviour
     {
         m_Points += point;
         ScoreText.text = $"Score : {m_Points}";
+        if (m_Points > hiScoreValue)
+        {
+            hiScoreName = DataManager.Instance.playerName;
+            hiScoreValue = m_Points;
+            HiScoreText.text = $"Best score: {hiScoreName} {hiScoreValue}";
+            DataManager.Instance.hiScoreName = hiScoreName;
+            DataManager.Instance.hiScoreValue = "" + hiScoreValue;
+            DataManager.Instance.SaveHiScore();
+        }
     }
 
     public void GameOver()
